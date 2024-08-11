@@ -3,13 +3,14 @@ import style from './Header.module.scss'
 import { NavLink } from 'react-router-dom'
 import convertIcon from '@/assets/images/convertpageicon.svg'
 import currencyIcon from '@/assets/images/singlepageicon.svg'
+import classNames from 'classnames'
 
 export interface IHeaderProps {}
 
 export const Header: FC<IHeaderProps> = () => {
     return (
         <div className={style.header}>
-            <div className={style.tab}>
+            <div className={classNames(style.tab, style.active)}>
                 <div className={style.icon}>
                     <img src={convertIcon} alt="" />
                 </div>
