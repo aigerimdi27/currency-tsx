@@ -5,12 +5,12 @@ import { Routes, Route } from "react-router-dom"
 export enum PagesEnum {
     CONVERT = "/",
     CURRENCY = "/currency",
-    // NOT_FOUND = "*"
 }
+
 
 const AppRouterPages: Record<PagesEnum, ReactElement> = {
     [PagesEnum.CONVERT] : <Convert/>,
-    [PagesEnum.CURRENCY] : <Currency/>
+    [PagesEnum.CURRENCY] : <Currency />
 }
 export interface IAppRouterProps {}
 

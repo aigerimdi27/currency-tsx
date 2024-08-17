@@ -1,48 +1,99 @@
 import { type FC } from 'react'
 import style from './Inputs.module.scss'
+import mediaStyle from './_media.module.scss'
 import switchIcon from '@/assets/images/switchicon.svg'
+import classNames from 'classnames'
+import '@/assets/styles/_global.scss'
+import { useGetCodesQuery} from '@/api/exchange/exchange.api'
 
-export interface InputsProps {}
+export interface InputsProps {
+    amount: string;
+    fromCurrency: string;
+    toCurrency: string;
+    onAmountChange: (amount: string) => void;
+    onFromCurrencyChange: (currency: string) => void;
+    onToCurrencyChange: (currency: string) => void;
+}
 
-export const Inputs: FC<InputsProps> = () => {
+
+export const Inputs: FC<InputsProps> = ({
+    amount,
+    fromCurrency,
+    toCurrency,
+    onAmountChange,
+    onFromCurrencyChange,
+    onToCurrencyChange
+}) => {
+
+    const { data: codesData } = useGetCodesQuery();
+
+    const currencyOptions = codesData?.supported_codes.map(([code, name]) => (
+        <option key={code} value={code}>
+            {name} ({code})
+        </option>
+    ))
+
+    const handleSwitchCurrencies = () => {
+        onFromCurrencyChange(toCurrency)
+        onToCurrencyChange(fromCurrency)
+    }
+
     return (
-       <div className={style.inputs}>
+       <div className={classNames(style.inputs, mediaStyle.inputs)}>
+           
 
-            <div className={style.amount}>
+            <div className={classNames(style.amount, mediaStyle.amount)}>
                 <label htmlFor='amount'>Amount</label>
                 <input 
                     type='number' 
                     id='amount'
-                    placeholder='1.00'
+                    value={amount}
+                    onChange={(e) => onAmountChange(e.target.value)}
                     required
                 />
             </div>
+            
 
-            <div className={style.selects}>
+            <div className={classNames(style.selects, mediaStyle.selects)}>
 
-                <div className={style.select}>
+                <div>
                     <label htmlFor="from">From</label>
                     <select 
                         id="from"
-                        required>
-                        <option value="" disabled selected>
+                        value={fromCurrency}
+                        onChange={(e) => onFromCurrencyChange(e.target.value)}
+                        className={classNames(style.select, mediaStyle.select)}
+                        required
+                        >
+                        <option value="" disabled>
                             Choose currency 
                         </option>
+                        {currencyOptions}
                     </select>
                 </div>
 
-                <div className={style.select__icon}>
-                    <img src={switchIcon} alt="" />
+                <div className={classNames(style.select__icon, mediaStyle.select__icon)}>
+                    <img 
+                        src={switchIcon} 
+                        alt="switch" 
+                        onClick={handleSwitchCurrencies}
+                    />
                 </div>
 
-                <div className={style.select}>
+                <div >
                     <label htmlFor="to">To</label>
                     <select 
                         id="to"
-                        required>
-                        <option value="" disabled selected>
+                        value={toCurrency}
+                        onChange={(e) => onToCurrencyChange(e.target.value)}
+                        className={classNames(style.select, mediaStyle.select)}
+                        required
+                        >
+                        <option value="" disabled>
                             Choose currency 
                         </option>
+                        {currencyOptions}
+
                     </select>
                 </div>
 

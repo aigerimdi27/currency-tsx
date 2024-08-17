@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+
+    .select {
+        width: 50px;
+    }
+}
+
+@media (max-width: 682px) {
+    .add {
+        display: flex;
+        flex-direction: column;
+    }
+    .desc {
+        display: none;
+    }
+}
+
+@media (max-width: 556px) {
+    // .add {
+    //     gap: 10px;
+    // }
+}

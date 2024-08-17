@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+    .select {
+        width: 200px;
+    }
+}
+
+@media (max-width: 682px) {
+    .select {
+        width: 100%;
+    }
+    .btn {
+        margin-top: 20px;
+        margin-right: 75px;
+        width: 170px;
+    }
+}
+

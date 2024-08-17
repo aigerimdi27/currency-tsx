@@ -1,18 +1,25 @@
+@import './media.module';
 .content {
     margin-top: 40px;
 }
 
+.single__select {
+    background-color: var(--select-color);
+    color: var(--black-color);
+    border-color: var(--white-bg);
+    display: none;
+}
 .item {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
     border-radius: 12px;
     padding: 12px 20px;
-    border: 2px solid #fff;
+    border: 2px solid var(--white-color);
     background: none;
     &.current {
         border: none;
-        background-color: #879fff;
+        background-color: var(--current-currency-bg);
     }
 }
 
@@ -22,11 +29,11 @@
     align-items: center;
     column-gap: 20px;
     font-weight: 600;
-    color: #f5f5f5;
+    color: var(--title-text);
 }
 
 .desc {
-    color: #2b2440;
+    color: var(--desc-text);
 }
 
 .amount {
@@ -38,6 +45,7 @@
 .single {
     position: relative;
     &__item {
+        margin-top: 15px;
         height: 69px;
     }
 }
@@ -46,31 +54,26 @@
     text-align: right;
 }
 
-.btn {
-    opacity: .5;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 12px;
-    padding: 10px 23px;
-    transition: .3s;
-    cursor: pointer;
-    &.change {
-        background-color: #000;
-        border: 1px solid #000;
-        color: #fff;
-        &:hover {
-            background-color: #fff;
-            color: #000;
-            opacity: 1;
-        }
-    }
+.change {
+    background-color: var(--black-color);
+    border: 1px solid var(--black-color);
+    color: var(--white-color);
     &:hover {
-        background-color: #000;
-        border: 1px solid #fff;
-        color: #fff;
+        background-color: var(--white-bg);
+        color: var(--black-color);
         opacity: 1;
     }
 }
+.remove {
+    &:hover{
+        background-color: var(--black-color);
+        border: 1px solid var(--white-color);
+        color: var(--white-color);
+        opacity: 1;
+    }
+   
+}
+
 
 .list {
     margin-top: 30px;
@@ -83,26 +86,12 @@
     display: flex;
     justify-content: end;
     margin-top: 20px;
-    &__btn {
-        background-color: rgb(250, 60, 120);
-        border-radius: 12px;
-        font-size: 17px;
-        color: #fff;
-        padding: 12px 30px;
-        cursor: pointer;
-        margin-left: auto;
+    &__currency {
+        background-color: var(--white-bg);
+        color: var(--black-color);
+        border-color: var(--white-color);
     }
-    &.active {
-        .select {
-            display: block;
-        }
-        .add__btn {
-            display: none;
-        }
-    }
+   
 }
 
-.select {
-    display: none;
-    padding: 11px 14px;
-}
+

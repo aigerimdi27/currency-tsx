@@ -1,3 +1,5 @@
+@import './media.module';
+
 .inputs {
     display: flex;
     justify-content: space-between;
@@ -6,36 +8,25 @@
 }
 
 .amount {
-    width: 320px;
+    width: 290px;
 }
 
 label {
     display: block;
     font-size: 13px;
-    color: #b7b7b7;
+    color: var(--label-color);
     margin-bottom: 10px;
     padding-left: 16px;
 }
 
 input {
     width: 100%;
-    background: #000; 
+    background: var(--black-color); 
     border-radius: 12px;
     font-weight: 600;
     line-height: 19px;
-    color: #f5f5f5;
-    border: 2px solid rgba(245, 245, 245, .5);
-    padding: 14px
-}
-
-select {
-    cursor: pointer;
-    min-width: 240px;
-    background: #000; 
-    border-radius: 12px;
-    font-weight: 600;
-    color: #f5f5f5;
-    border: 3px solid rgba(184, 134, 11, .5);
+    color: var(--title-text);
+    border: 2px solid var(--white-bg);
     padding: 14px
 }
 

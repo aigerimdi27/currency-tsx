@@ -1,4 +1,4 @@
-@import url('./_media.scss');
+@import './media.module';
 .header {
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
     position: relative;
     &::before {
         content: "";
-        border-bottom: 2px solid rgb(184, 134, 11);
+        border-bottom: 2px solid var(--select-color);
         position: absolute;
         bottom: 0;
         left: 0;
@@ -19,9 +19,10 @@
 
 .tab {
     display: flex;
+    align-items: center;
     cursor: pointer;
     column-gap: 10px;
-    padding: 15px 10px;
+    padding: 15px 30px;
     opacity: .5;
     &:hover {
         transition: .2s;
@@ -35,7 +36,6 @@
 a {
     color: inherit;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 .icon {
