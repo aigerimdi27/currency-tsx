@@ -12,7 +12,9 @@ export interface IHeaderProps {}
 export const Header: FC<IHeaderProps> = () => {
     return (
         <div className={style.header}>
-            <div className={classNames(style.tab, mediaStyle.tab)}>
+            <div className={classNames(style.tab, mediaStyle.tab)}
+ 
+            >
                 <div className={style.icon}>
                     <img src={convertIcon} alt="" />
                 </div>

@@ -72,3 +72,16 @@
     }
    
 }
+
+@media (max-width: 480px) {
+   .select {
+    width: 250px;
+   }
+}
+
+@media (max-width:400px) {
+   .amount {
+        width: 210px;
+   }
+}
+

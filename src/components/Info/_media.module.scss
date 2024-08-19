@@ -1,37 +1,32 @@
-@media (max-width: 1320px) {
- 
-}
-@media (max-width: 1200px) {
-
-}
-
-@media (max-width: 1050px) {
-  
-}
-
 @media (max-width: 992px) {
     .info {
         margin: 60px 0;
         
     }
     .results {
-       padding-right: 80px;
+       padding-right: 20px;
     }
 
 }
 @media (max-width: 840px) {
     .results {
-        width: 250px;
+        width: 270px;
 
     }
     .result {
-        display: grid;
-        grid-template-columns: 25px 1fr;
         &__icon {
-            width: 24px;
+            width: 27px;
         }
-        &__desc {
+        &__title {
             display: none;
+        }
+        &__value {
+            margin-top: 10px;
+        }
+    }
+    .rate {
+        &__last {
+            text-align: right;
         }
     }
 }
@@ -41,6 +36,10 @@
         justify-content: center;
         align-items: center;
         column-gap: 15px;
+    }
+    .results {
+        padding-right: 40px;
+
     }
     .result {
         &__title {
@@ -53,10 +52,9 @@
         }
     }
     .btn {
-        font-size: 14px;
-        padding: 10px 25px;
-        cursor: pointer;
-        margin-left: auto;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
     }
     .rate__info {
         display: flex;
@@ -73,13 +71,14 @@
     column-gap: 25px;
    }
     .results {
-        display: none;
+        padding-right: 15px;
+       
     }
     .result {
         display: grid;
         grid-template-columns: 20px 1fr;
         &__icon {
-            width: 20px;
+            width: 17px;
         }
         &__title {
             font-size: 12px;
@@ -89,11 +88,41 @@
             font-size: 15px;
             margin-top: 5px;
         }
-       
+      
     }
     .btn {
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-     }
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
 }
+
+@media (max-width: 556px) {
+    .results {
+        column-gap: 5px;
+        padding-right: 5px;
+    }
+    .result {
+        background: none;
+        color: var(--white-color);
+    }
+    
+}
+
+
+@media (max-width: 480px) {
+    .info {
+        margin: 30px 0;
+    }
+    .rate__conversion {
+        text-align: center;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+    .btn {
+        margin: 15px 0;
+    }
+ }
+ 

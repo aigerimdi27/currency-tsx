@@ -16,7 +16,7 @@ const Currency: FC<ICurrencyProps> = () => {
     const [amount, setAmount] = useState<number>(1)
     const [fromCurrency, setFromCurrency] = useState<string>('')
     const [toCurrency, setToCurrency] = useState<string>('')
-    
+
     const [selectedCurrency, setSelectedCurrency] = useState<string>('')
     const [showSelect, setShowSelect] = useState<boolean>(false)
     const [currentCurrency, setCurrentCurrency] = useState<{ code: string, name: string, amount: number }>({
@@ -27,8 +27,11 @@ const Currency: FC<ICurrencyProps> = () => {
     const [addedCurrencies, setAddedCurrencies] = useState<Array<{ code: string, name: string, amount: number }>>([])
 
 
+
+
     const conversionRate = currencyData ? (currencyData.conversion_rates[toCurrency] / currencyData.conversion_rates[fromCurrency]) : 0
     const convertedAmount = useMemo(() => amount * conversionRate, [amount, conversionRate])
+    console.log(convertedAmount)
 
 
 
@@ -83,12 +86,12 @@ const Currency: FC<ICurrencyProps> = () => {
                         <div className={classNames(style.item, style.current)}>
 
                             <div className={style.titles}>
-                                <div className={style.title}>{currentCurrency.code}</div>
+                                <div className={classNames(style.title, mediaStyle.title)}>{currentCurrency.code}</div>
                                 <div className={classNames(style.desc)}>{currentCurrency.name}</div>
                             </div>
                             
                             <div className={style.amount}>{currentCurrency.amount}</div>
-                            <div className={style.action}>
+                            <div className={classNames(style.action, mediaStyle.action)}>
                                 <button 
                                     className={classNames(style.change, ["currency__btn"])}
                                     onClick={() => setShowSelect(!showSelect)}
@@ -106,12 +109,12 @@ const Currency: FC<ICurrencyProps> = () => {
                     {addedCurrencies.map(currency => (
                         <div key={currency.code} className={style.item}>
                             <div className={style.titles}>
-                                <div className={style.title}>{currency.code}</div>
+                                <div className={classNames(style.title, mediaStyle.title)}>{currency.code}</div>
                                 <div className={classNames(style.desc)}>{currency.name}</div>
                             </div>
 
-                            <div className={style.amount}>{currency.amount}</div>
-                            <div className={style.action}>
+                            <div className={classNames(style.amount, mediaStyle.amount)}>{currency.amount}</div>
+                            <div className={classNames(style.action, mediaStyle.action)}>
                                 <button
                                     className={classNames(style.remove, ["currency__btn"])}
                                     onClick={() => handleRemoveCurrency(currency.code)}
@@ -141,10 +144,10 @@ const Currency: FC<ICurrencyProps> = () => {
                 </select>
 
                 <button 
-                    className={classNames(style.add__btn, ["btn"])}
+                    className={classNames(mediaStyle.add__btn, ["btn"])}
                     onClick={() => handleAddCurrency()}
                 >
-                    Confirm
+                    Add currency
                 </button>
 
             </div>

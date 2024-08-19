@@ -80,6 +80,8 @@ export const Info: FC<InfoProps> = ({ amount, fromCurrency, toCurrency}) => {
                         </div>
 
                     </div>
+
+                   
                 )}
 
                 <button 
@@ -91,17 +93,22 @@ export const Info: FC<InfoProps> = ({ amount, fromCurrency, toCurrency}) => {
                 </button>
 
             </div>
-                <div className={classNames(style.rate__info, mediaStyle.rate__info)}>
-                    <div className={classNames(style.rate__conversion, mediaStyle.rate__conversion)}>
-                            
-                        {currencyData ? `1 ${fromCurrencyName} = ${conversionRate.toFixed(2)} ${toCurrencyName}` : ''}
-                    </div>
-                    <div className={classNames(style.rate__last, mediaStyle.rate__last)}>
-                        Updated {currencyData?.time_last_update_utc 
-                            ?  new Date(currencyData.time_last_update_utc).toLocaleDateString()
-                            : "undefined"}
-                    </div>
+
+            <div className={classNames(style.rate__info, mediaStyle.rate__info)}>
+
+                {
+                    showInfo && (
+                        <div className={classNames(style.rate__conversion, mediaStyle.rate__conversion)}>
+                                
+                            {currencyData ? `1 ${fromCurrencyName} = ${conversionRate.toFixed(2)} ${toCurrencyName}` : '' }
+                        </div>
+                    )}
+                <div className={classNames(style.rate__last, mediaStyle.rate__last)}>
+                    Updated {currencyData?.time_last_update_utc 
+                        ?  new Date(currencyData.time_last_update_utc).toLocaleDateString()
+                        : "undefined"}
                 </div>
+            </div>
         </>
     )
 }
